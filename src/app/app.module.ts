@@ -28,6 +28,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { HomeComponent } from './home/home.component';
 
 
 
@@ -42,6 +43,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 
     HighlightDirective,
     SidebarComponent,
+    HomeComponent,
    
   ],
   imports: [
