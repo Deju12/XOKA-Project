@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-<<<<<<< HEAD
-=======
+
 import { Employee } from '../models/employee.model';
 import { EmployeeService } from '../employee.service';
->>>>>>> 02ddfd1 (create a side bar)
+
 
 @Component({
   selector: 'app-employee',
@@ -11,14 +10,7 @@ import { EmployeeService } from '../employee.service';
   styleUrls: ['./employee.component.scss']
 })
 export class EmployeeComponent implements OnInit {
-<<<<<<< HEAD
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
-=======
   employees: Employee[] = [];
   newEmployee: Employee = { id: 0, name: '', organizationId: 0, departmentId: 0, salaryId: 0 };
 
@@ -48,5 +40,5 @@ export class EmployeeComponent implements OnInit {
   updateEmployee(employee: Employee): void {
     this.employeeService.updateEmployee(employee).subscribe();
   }
->>>>>>> 02ddfd1 (create a side bar)
+
 }
