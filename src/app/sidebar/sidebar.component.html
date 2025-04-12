@@ -1,5 +1,5 @@
 <mat-toolbar class="mat-elevation-z8">
-    <button
+    <button class="icon-button"
       mat-icon-button
       *ngIf="sidenav.mode === 'over'"
       (click)="sidenav.toggle()"
@@ -22,29 +22,31 @@
   
       <mat-divider></mat-divider>
   
-      <button mat-button class="menu-button" routerLink="/home">
+      <button mat-button class="menu-button" routerLink="/">
         <mat-icon>home</mat-icon>
-        <span>Employee</span>
+        <span>Home</span>
       </button>
-      <button mat-button class="menu-button" routerLink="/profile">
+      <button mat-button class="menu-button" routerLink="/employee">
         <mat-icon>person</mat-icon>
         <span>Employee</span>
       </button>
-      <button mat-button class="menu-button" routerLink="/about">
+      <button mat-button class="menu-button" routerLink="/candidate">
         <mat-icon>info</mat-icon>
         <span>Candidate</span>
       </button>
+      <button mat-button class="menu-button" routerLink="/organization">
+        <mat-icon>help</mat-icon>
+        <span>organization</span>
+      </button>
   
-      <mat-divider></mat-divider>
-  
-      <button mat-button class="menu-button" routerLink="/help">
+      <button mat-button class="menu-button" routerLink="/salary">
         <mat-icon>help</mat-icon>
         <span>Salary</span>
       </button>
     </mat-sidenav>
     <mat-sidenav-content>
       <div class="content mat-elevation-z8">
-        <router-outlet></router-outlet>
+        <router-outlet> side bar </router-outlet>
       </div>
     </mat-sidenav-content>
   </mat-sidenav-container>
