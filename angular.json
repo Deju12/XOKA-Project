@@ -28,7 +28,11 @@
               "src/assets"
             ],
             "styles": [
+<<<<<<< HEAD
               "./node_modules/@angular/material/prebuilt-themes/purple-green.css",
+=======
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+>>>>>>> 02ddfd1 (create a side bar)
               "src/styles.scss"
             ],
             "scripts": []
@@ -94,7 +98,11 @@
               "src/assets"
             ],
             "styles": [
+<<<<<<< HEAD
               "./node_modules/@angular/material/prebuilt-themes/purple-green.css",
+=======
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+>>>>>>> 02ddfd1 (create a side bar)
               "src/styles.scss"
             ],
             "scripts": []

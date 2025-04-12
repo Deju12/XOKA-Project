@@ -21,6 +21,10 @@
     "@angular/platform-browser": "~8.2.14",
     "@angular/platform-browser-dynamic": "~8.2.14",
     "@angular/router": "~8.2.14",
+<<<<<<< HEAD
+=======
+    "@ngneat/until-destroy": "^7.0.0",
+>>>>>>> 02ddfd1 (create a side bar)
     "angular-in-memory-web-api": "^0.8.0",
     "hammerjs": "^2.0.8",
     "rxjs": "~6.4.0",
@@ -32,9 +36,15 @@
     "@angular/cli": "~8.3.29",
     "@angular/compiler-cli": "~8.2.14",
     "@angular/language-service": "~8.2.14",
+<<<<<<< HEAD
     "@types/node": "~8.9.4",
     "@types/jasmine": "~3.3.8",
     "@types/jasminewd2": "~2.0.3",
+=======
+    "@types/jasmine": "~3.3.8",
+    "@types/jasminewd2": "~2.0.3",
+    "@types/node": "~8.9.4",
+>>>>>>> 02ddfd1 (create a side bar)
     "codelyzer": "^5.0.0",
     "jasmine-core": "~3.4.0",
     "jasmine-spec-reporter": "~4.2.1",
@@ -46,6 +56,10 @@
     "protractor": "~7.0.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
+<<<<<<< HEAD
     "typescript": "~3.5.3"
+=======
+    "typescript": "^3.5.3"
+>>>>>>> 02ddfd1 (create a side bar)
   }
 }

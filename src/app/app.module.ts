@@ -13,11 +13,25 @@ import { HighlightDirective } from './highlight.directive';
 // Importing Angular Material modules
 import { MatTableModule } from '@angular/material/table';
 import { MatHeaderRowDef, MatRowDef } from '@angular/material/table';
+<<<<<<< HEAD
+=======
+import { FormsModule } from '@angular/forms';
+import { MatDividerModule } from '@angular/material/divider';
+
+>>>>>>> 02ddfd1 (create a side bar)
 
 
 import { HttpClientModule } from '@angular/common/http';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { HrDataService } from './hr-data.service';
+<<<<<<< HEAD
+=======
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+
+>>>>>>> 02ddfd1 (create a side bar)
 
 @NgModule({
   declarations: [
@@ -27,15 +41,32 @@ import { HrDataService } from './hr-data.service';
     EmployeeComponent,
     DepartmentComponent,
     SalaryComponent,
+<<<<<<< HEAD
     HighlightDirective
   ],
   imports: [
+=======
+    HighlightDirective,
+    SidebarComponent,
+   
+  ],
+  imports: [
+    FormsModule,
+>>>>>>> 02ddfd1 (create a side bar)
     MatTableModule,
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     InMemoryWebApiModule.forRoot(HrDataService),
+<<<<<<< HEAD
+=======
+    MatSidenavModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatDividerModule
+
+>>>>>>> 02ddfd1 (create a side bar)
   ],
   providers: [],
   bootstrap: [AppComponent]
