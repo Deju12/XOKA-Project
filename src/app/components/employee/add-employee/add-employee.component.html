@@ -1,23 +1,39 @@
-<h3>+ Add Employee</h3>
-<mat-form-field appearance="outline">
+<h3>Add Employee</h3>
+
+<div class="form-container">
+  <!-- ID Field -->
+  <mat-form-field appearance="outline" class="form-field">
     <mat-label>ID</mat-label>
-    <input matInput [(ngModel)]="newEmployee.id" placeholder="ENETER ID" disabled>
+    <input matInput [(ngModel)]="newEmployee.id" placeholder="Auto-generated ID" disabled>
   </mat-form-field>
-<mat-form-field appearance="outline">
-  <mat-label>Name</mat-label>
-  <input matInput [(ngModel)]="newEmployee.name" placeholder="Enter name">
-</mat-form-field>
-<mat-form-field appearance="outline">
-  <mat-label>Organization ID</mat-label>
-  <input matInput type="number" [(ngModel)]="newEmployee.organizationId" placeholder="Enter Org ID">
-</mat-form-field>
-<mat-form-field appearance="outline">
-  <mat-label>Department ID</mat-label>
-  <input matInput type="number" [(ngModel)]="newEmployee.departmentId" placeholder="Enter Dept ID">
-</mat-form-field>
-<mat-form-field appearance="outline">
-  <mat-label>Salary ID</mat-label>
-  <input matInput type="number" [(ngModel)]="newEmployee.salaryId" placeholder="Enter Salary ID">
-</mat-form-field>
-<button mat-raised-button color="primary" (click)="addEmployee()">Add Employee</button>
-<button mat-raised-button color="warn" routerLink="/employee">Cancel</button>
+
+  <!-- Name Field -->
+  <mat-form-field appearance="outline" class="form-field">
+    <mat-label>Name</mat-label>
+    <input matInput [(ngModel)]="newEmployee.name" placeholder="Enter name">
+  </mat-form-field>
+
+  <!-- Organization ID Field -->
+  <mat-form-field appearance="outline" class="form-field">
+    <mat-label>Organization ID</mat-label>
+    <input matInput type="number" [(ngModel)]="newEmployee.organizationId" placeholder="Enter Org ID">
+  </mat-form-field>
+
+  <!-- Department ID Field -->
+  <mat-form-field appearance="outline" class="form-field">
+    <mat-label>Department ID</mat-label>
+    <input matInput type="number" [(ngModel)]="newEmployee.departmentId" placeholder="Enter Dept ID">
+  </mat-form-field>
+
+  <!-- Salary ID Field -->
+  <mat-form-field appearance="outline" class="form-field">
+    <mat-label>Salary ID</mat-label>
+    <input matInput type="number" [(ngModel)]="newEmployee.salaryId" placeholder="Enter Salary ID">
+  </mat-form-field>
+
+  <!-- Buttons -->
+  <div class="form-buttons">
+    <button mat-raised-button color="primary" (click)="addEmployee()">Add Employee</button>
+    <button mat-raised-button color="warn" routerLink="/employee">Cancel</button>
+  </div>
+</div>
