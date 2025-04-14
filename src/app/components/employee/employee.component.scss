@@ -1,0 +1,32 @@
+table {
+  width: 100%;
+}
+
+th.mat-sort-header-sorted {
+  table-layout: auto;
+}
+
+button {
+  margin: 0px 10px;
+}
+
+.mat-header-row {
+  height: 65px;
+  background-color: gray;
+}
+
+.mat-header-cell {
+  text-align: center;
+  font-size: 16px;
+  padding: 5px 24px;
+}
+
+.mat-cell {
+  font-size: 12px;
+  padding: 5px 24px;
+}
+
+/* Change background color for even rows */
+.mat-row:nth-child(even) {
+  background-color: #f5f5f5; /* Light gray background for even rows */
+}

@@ -1,0 +1,30 @@
+.form-title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #3f51b5; /* Primary color */
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px; /* Space between fields */
+  max-width: 400px;
+  margin: 0 auto; /* Center the form */
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.form-field {
+  width: 100%; /* Make fields take full width */
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}

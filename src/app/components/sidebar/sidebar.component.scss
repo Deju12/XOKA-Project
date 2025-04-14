@@ -1,0 +1,155 @@
+// Global Styles
+$primary-color: #2b3d51;
+$accent-color: #00bcd4;
+$background-color: #f4f6f9;
+$text-color: #333;
+$header-height: 64px;
+$menu-width: 250px;
+
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: $background-color;
+  color: $text-color;
+}
+
+// Toolbar Styles
+mat-toolbar {
+  background-color: $primary-color;
+  color: white;
+  height: $header-height;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .icon-button {
+    color: white;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 8px;
+    transition: background 0.3s;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    mat-icon {
+      font-size: 24px;
+    }
+  }
+}
+
+// Sidenav Styles
+mat-sidenav-container {
+  display: flex;
+  height: calc(100vh - #{$header-height});
+  flex-direction: row;
+}
+
+mat-sidenav {
+  width: $menu-width;
+  background-color: $primary-color;
+  color: white;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .avatar {
+    width: 100%;
+    border-radius: 50%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 16px;
+  }
+
+  .name {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin: 0;
+    color: white;
+    text-align: center;
+  }
+
+  .designation {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #e0e0e0;
+    text-align: center;
+    margin: 4px 0;
+  }
+
+  .mat-divider {
+    margin: 16px 0;
+  }
+
+  .menu-button {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    color: white;
+    font-size: 1rem;
+    font-weight: 400;
+    text-transform: capitalize;
+    background: transparent;
+    border: none;
+    width: 100%;
+    transition: background 0.3s;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    mat-icon {
+      margin-right: 12px;
+    }
+  }
+}
+
+// Sidenav Content Styles
+mat-sidenav-content {
+  flex: 1;
+  background-color: $background-color;
+  padding: 20px;
+
+  .content {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    min-height: 100%;
+  }
+}
+
+// Media Queries for Responsiveness
+@media (max-width: 768px) {
+  mat-sidenav {
+    width: 200px;
+  }
+
+  mat-toolbar {
+    .icon-button {
+      padding: 8px;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+    }
+  }
+
+  mat-sidenav-container {
+    flex-direction: column;
+  }
+
+  .menu-button {
+    padding: 10px;
+  }
+}

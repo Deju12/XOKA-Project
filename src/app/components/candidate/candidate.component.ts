@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HrDataService } from '../hr-data.service';
+import { HrDataService } from '../../services/hr-data.service';
 import { HttpClient } from '@angular/common/http';
 import { MatTableDataSource } from '@angular/material/table';
 
