@@ -1,16 +1,22 @@
-<button mat-button class="menu-button" routerLink="/employee/add">
- 
-  <span>Add +</span>
-</button>
-<button mat-button class="menu-button" routerLink="/employee/list">
- 
-  <span>List</span>
-</button>
-<button mat-button class="menu-button" routerLink="/employee/update">
+<div class="menu-container">
+  <!-- Add Employee Dropdown -->
+  <button mat-button class="menu-button" routerLink="/employee/add" routerLinkActive="active">
+    <span>Add</span>
+  </button>
 
-  <span>Update</span>
-</button>
+
+
+  <!-- List Button -->
+  <button mat-button class="menu-button" routerLink="/employee/list" routerLinkActive="active">
+    <span>List</span>
+  </button>
+
+  <!-- Update Button -->
+  <button mat-button class="menu-button" routerLink="/employee/update" routerLinkActive="active">
+    <span>Update</span>
+  </button>
+</div>
 
 <div class="content mat-elevation-z8">
-  <router-outlet> </router-outlet>
+  <router-outlet></router-outlet>
 </div>

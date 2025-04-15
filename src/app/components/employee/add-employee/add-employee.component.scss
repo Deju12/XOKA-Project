@@ -5,24 +5,31 @@
   font-weight: bold;
   color: #3f51b5; /* Primary color */
 }
-
+input{
+    margin: 0;
+}
 .form-container {
   display: flex;
-  flex-direction: column; /* Align items vertically */
-  gap: 16px; /* Add spacing between fields */
-  max-width: 400px; /* Limit the width of the form */
-  margin: 0 auto; /* Center the form horizontally */
+  flex-direction: column;
+  align-items: center;
+  gap: 16px; /* Space between fields */
+  max-width: 400px;
+  margin: 0 auto; /* Center the form */
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 8px;
   background-color: #f9f9f9;
+  box-shadow: none;
 }
 
 .form-field {
-  width: 100%; /* Make fields take full width */
+  width: 100%;
+  margin: 0;
+  padding: 0; /* Make fields take full width */
 }
 
 .form-buttons {
   display: flex;
-  justify-content: space-between; /* Space out the buttons */
+  justify-content: center;
+  width: 100%;
 }

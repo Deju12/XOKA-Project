@@ -22,7 +22,7 @@ import { CandidateComponent } from './components/candidate/candidate.component';
 import { OrganizationComponent } from './components/organization/organization.component';
 import { EmployeeComponent } from './components/employee/employee.component';
 import { DepartmentComponent } from './components/department/department.component';
-import { SalaryComponent } from './components/salary/salary.component';
+
 import { HighlightDirective } from './directives/highlight.directive';
 // Importing Angular Material modules
 
@@ -43,13 +43,16 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { HomeComponent } from './components/home/home.component';
-import { MatSortModule } from '@angular/material';
+import { MatDialogModule, MatFormFieldModule, MatMenuModule, MatSelectModule, MatSortModule } from '@angular/material';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { AddEmployeeComponent } from './components/employee/add-employee/add-employee.component';
 
 import { UpdateEmployeeComponent } from './components/employee/update-employee/update-employee.component';
 import { EmployeeListComponent } from './components/employee/employee-list/employee-list.component';
-
+import { OrganizationService } from './services/organization/organization.service';
+import { DepartmentService } from './services/department/department.service';
+import {ConfirmationDialog } from './shared/confirmation-dialog/confirmation-dialog.component';
+import { MessageDialogComponent } from './shared/message-dialog/message-dialog.component';
 
 
 
@@ -60,7 +63,6 @@ import { EmployeeListComponent } from './components/employee/employee-list/emplo
     OrganizationComponent,
     EmployeeComponent,
     DepartmentComponent,
-    SalaryComponent,
 
     HighlightDirective,
     SidebarComponent,
@@ -69,6 +71,8 @@ import { EmployeeListComponent } from './components/employee/employee-list/emplo
     
     UpdateEmployeeComponent,
     EmployeeListComponent,
+    ConfirmationDialog,
+    MessageDialogComponent,
    
   ],
   imports: [
@@ -88,10 +92,15 @@ import { EmployeeListComponent } from './components/employee/employee-list/emplo
     MatInputModule,
     MatButtonModule,
     MatSortModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatMenuModule,
+    MatDialogModule
 
 
   ],
-  providers: [],
+  entryComponents: [ConfirmationDialog],
+  providers: [OrganizationService,DepartmentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

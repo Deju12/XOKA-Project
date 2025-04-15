@@ -1,32 +1,35 @@
-table {
-  width: 100%;
+.menu-container {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 20px;
 }
 
-th.mat-sort-header-sorted {
-  table-layout: auto;
+.menu-button {
+  background-color: #212124; /* Primary color */
+  color: white;
+  font-weight: bold;
+  border-radius: 4px;
+  padding: 2px 16px;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
 }
 
-button {
-  margin: 0px 10px;
+.menu-button:hover {
+  background-color: #303f9f; /* Darker shade of primary color */
 }
 
-.mat-header-row {
-  height: 65px;
-  background-color: gray;
+.menu-button.active {
+  background-color: #851ee5; /* Active state color */
 }
 
-.mat-header-cell {
-  text-align: center;
-  font-size: 16px;
-  padding: 5px 24px;
+.mat-menu-item {
+  font-size: 14px;
+  color: #3f51b5;
 }
 
-.mat-cell {
-  font-size: 12px;
-  padding: 5px 24px;
+.content {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
 }
 
-/* Change background color for even rows */
-.mat-row:nth-child(even) {
-  background-color: #f5f5f5; /* Light gray background for even rows */
-}

@@ -1,1 +1,47 @@
-<p>update-employee works!</p>
+<h3 class="form-title">Update or Delete Employee</h3>
+
+<div class="form-container">
+  <!-- Employee ID Field -->
+  <mat-form-field appearance="outline" class="form-field">
+    <mat-label>Employee ID</mat-label>
+    <input matInput [(ngModel)]="employee.id" placeholder="Enter Employee ID">
+  </mat-form-field>
+
+  <!-- Name Field -->
+  <mat-form-field appearance="outline" class="form-field">
+    <mat-label>Name</mat-label>
+    <input matInput [(ngModel)]="employee.name" placeholder="Enter Employee Name">
+  </mat-form-field>
+
+  <!-- Organization Dropdown -->
+  <mat-form-field appearance="outline" class="form-field">
+    <mat-label>Organization</mat-label>
+    <mat-select [(ngModel)]="employee.organizationId" placeholder="Select Organization">
+      <mat-option *ngFor="let org of organizations" [value]="org.id">
+        {{ org.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <!-- Department Dropdown -->
+  <mat-form-field appearance="outline" class="form-field">
+    <mat-label>Department</mat-label>
+    <mat-select [(ngModel)]="employee.departmentId" placeholder="Select Department">
+      <mat-option *ngFor="let dept of departments" [value]="dept.id">
+        {{ dept.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <!-- Salary Field -->
+  <mat-form-field appearance="outline" class="form-field">
+    <mat-label>Salary</mat-label>
+    <input matInput type="number" [(ngModel)]="employee.salary" placeholder="Enter Salary">
+  </mat-form-field>
+
+  <!-- Buttons -->
+  <div class="form-buttons">
+    <button mat-raised-button color="primary" (click)="updateEmployee()">Update</button>
+    <button mat-raised-button color="warn" (click)="deleteEmployee()">Delete</button>
+  </div>
+</div>

@@ -8,8 +8,8 @@ import { Employee } from '../models/employee.model';
 export class HrDataService implements InMemoryDbService {
   createDb() {
     const employees = [
-      { id: 1, name: 'John Doe', organizationId: 1, departmentId: 1, salaryId: 1 },
-      { id: 2, name: 'Jane Smith', organizationId: 2, departmentId: 2, salaryId: 2 }
+      { id: 1, name: 'John Doe', organizationId: 1, departmentId: 1, salary: 30000 },
+      { id: 2, name: 'Jane Smith', organizationId: 2, departmentId: 2, salary: 25000 }
     ];
     const organizations = [
       { id: 1, name: 'Tech Corp' },

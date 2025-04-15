@@ -1,0 +1,19 @@
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Department } from 'src/app/models/department.model';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class DepartmentService {
+   private apiUrl = 'api/departments'; // In-memory API endpoint
+  
+    constructor(private http: HttpClient) {}
+  
+    getDepartment(): Observable<Department[]> {
+      return this.http.get<Department[]>(this.apiUrl);
+    }
+
+
+}
