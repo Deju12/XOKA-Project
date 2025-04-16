@@ -99,7 +99,7 @@ import { MessageDialogComponent } from './shared/message-dialog/message-dialog.c
 
 
   ],
-  entryComponents: [ConfirmationDialog],
+  entryComponents: [ConfirmationDialog,MessageDialogComponent],
   providers: [OrganizationService,DepartmentService],
   bootstrap: [AppComponent]
 })
