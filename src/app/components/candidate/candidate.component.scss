@@ -1,0 +1,36 @@
+.menu-container {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .menu-button {
+    background-color: #212124; /* Primary color */
+    color: white;
+    font-weight: bold;
+    border-radius: 4px;
+    padding: 2px 16px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+  }
+  
+  .menu-button:hover {
+    background-color: #303f9f; /* Darker shade of primary color */
+  }
+  
+  .menu-button.active {
+    background-color: #851ee5; /* Active state color */
+  }
+  
+  .mat-menu-item {
+    font-size: 14px;
+    color: #3f51b5;
+  }
+  
+  .content {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+  }
+  
+  

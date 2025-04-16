@@ -1,40 +1,90 @@
-<h3>Add Employee</h3>
+<h3>Add Employee and Candidate</h3>
 
-<div class="form-container">
-  <!-- Name Field -->
-  <mat-form-field appearance="outline" class="form-field">
-    <mat-label>Name</mat-label>
-    <input matInput [(ngModel)]="newEmployee.name" placeholder="Enter name">
-  </mat-form-field>
+<mat-tab-group>
+  <!-- Employee Form Tab -->
+  <mat-tab label="Employee">
+    <div class="form-container">
+      <!-- Name Field -->
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Name</mat-label>
+        <input matInput [(ngModel)]="newEmployee.name" placeholder="Enter name">
+      </mat-form-field>
 
-  <!-- Organization Dropdown -->
-  <mat-form-field appearance="outline" class="form-field">
-    <mat-label>Organization</mat-label>
-    <mat-select [(ngModel)]="newEmployee.organizationId" placeholder="Select Organization">
-      <mat-option *ngFor="let org of organizations" [value]="org.id">
-        {{ org.name }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+      <!-- Organization Dropdown -->
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Organization</mat-label>
+        <mat-select [(ngModel)]="newEmployee.organizationId" placeholder="Select Organization">
+          <mat-option *ngFor="let org of organizations" [value]="org.id">
+            {{ org.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
 
-  <!-- Department ID Field -->
-  <mat-form-field appearance="outline" class="form-field">
-    <mat-label>Department</mat-label>
-      <mat-select [(ngModel)]="newEmployee.departmentId" placeholder="Select Department">
-        <mat-option *ngFor="let dep of departments" [value]="dep.id">
-          {{ dep.name }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
+      <!-- Department Dropdown -->
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Department</mat-label>
+        <mat-select [(ngModel)]="newEmployee.departmentId" placeholder="Select Department">
+          <mat-option *ngFor="let dep of departments" [value]="dep.id">
+            {{ dep.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
 
-  <!-- Salary ID Field -->
-  <mat-form-field appearance="outline" class="form-field">
-    <mat-label>Salary</mat-label>
-    <input matInput type="number" [(ngModel)]="newEmployee.salary" placeholder="Enter Salary ID">
-  </mat-form-field>
+      <!-- Salary Field -->
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Salary</mat-label>
+        <input matInput type="number" [(ngModel)]="newEmployee.salary" placeholder="Enter Salary">
+      </mat-form-field>
 
-  <!-- Buttons -->
-  <div class="form-buttons">
-    <button mat-raised-button color="primary" (click)="addEmployee()">Add Employee</button>
-  </div>
-</div>
+      <!-- Add Employee Button -->
+      <div class="form-buttons">
+        <button mat-raised-button color="primary" (click)="addEmployee()">Add Employee</button>
+      </div>
+    </div>
+  </mat-tab>
+
+  <!-- Candidate Form Tab -->
+  <mat-tab label="Candidate">
+    <div class="form-container">
+      <!-- Candidate Name Field -->
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Employee Name</mat-label>
+        <input
+    matInput
+    [(ngModel)]="newCandidate.name"
+    [matAutocomplete]="auto"
+    (input)="filterEmployees($event.target.value)"
+    placeholder="Enter Employee Name"
+  />
+  <mat-autocomplete #auto="matAutocomplete">
+    <mat-option *ngFor="let employee of filteredEmployees" [value]="employee.name">
+      {{ employee.name }}
+    </mat-option>
+  </mat-autocomplete> 
+</mat-form-field>
+
+      <!-- Candidate Email Field -->
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" [(ngModel)]="newCandidate.email" placeholder="Enter Email">
+      </mat-form-field>
+
+      <!-- Candidate Phone Field -->
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Phone</mat-label>
+        <input matInput type="tel" [(ngModel)]="newCandidate.phone" placeholder="Enter Phone Number">
+      </mat-form-field>
+
+      <!-- Candidate Skills Field -->
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Skills</mat-label>
+        <input matInput [(ngModel)]="newCandidate.skills" placeholder="Enter Skills">
+      </mat-form-field>
+
+      <!-- Add Candidate Button -->
+      <div class="form-buttons">
+        <button mat-raised-button color="primary" (click)="addCandidate()">Add Candidate</button>
+      </div>
+    </div>
+  </mat-tab>
+</mat-tab-group>

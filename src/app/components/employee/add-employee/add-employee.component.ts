@@ -6,6 +6,9 @@ import { Organization } from 'src/app/models/organization.model';
 import { DepartmentService } from 'src/app/services/department/department.service';
 import { EmployeeService } from 'src/app/services/employee/employee.service';
 import { OrganizationService } from 'src/app/services/organization/organization.service';
+import { ConfirmationDialog } from 'src/app/shared/confirmation-dialog/confirmation-dialog.component';
+import { MessageDialogComponent } from 'src/app/shared/message-dialog/message-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-add-employee',
@@ -13,20 +16,25 @@ import { OrganizationService } from 'src/app/services/organization/organization.
   styleUrls: ['./add-employee.component.scss']
 })
 export class AddEmployeeComponent implements OnInit {
-  newEmployee: Employee = { id: 0, name: '', organizationId: 0, departmentId: 0, salary: 0 };
+  newEmployee = { id: 0, name: '', organizationId: 0, departmentId: 0, salary: 0 };
+  newCandidate = { name: '', email: '', phone: '', skills: '' };
   organizations: Organization[] = []; // List of organizations
   departments: Department[] = []; // List of departments
+  employees: Employee[] = []; // List of all employees
+  filteredEmployees: Employee[] = []; // Filtered employees for autocomplete
+
   constructor(
     private employeeService: EmployeeService,
     private organizationService: OrganizationService,
-    private departmentService: DepartmentService,
-    private router: Router
+    private router: Router,
+    private dialog: MatDialog,
+    private departmentService: DepartmentService
   ) {}
 
   ngOnInit(): void {
     this.getOrganizations();
     this.getDepartments();
-    this.generateEmployeeId();
+    this.getAllEmployees(); // Fetch all employees
   }
 
   getOrganizations(): void {
@@ -34,6 +42,7 @@ export class AddEmployeeComponent implements OnInit {
       this.organizations = data; // Populate the organizations array
     });
   }
+
   getDepartments(): void {
     this.departmentService.getDepartment().subscribe(data => {
       console.log('Departments fetched:', data);
@@ -41,25 +50,54 @@ export class AddEmployeeComponent implements OnInit {
     });
   }
 
-  generateEmployeeId(): void {
-    this.employeeService.getEmployees().subscribe(employees => {
-      this.newEmployee.id = employees.length > 0 ? Math.max(...employees.map(emp => emp.id)) + 1 : 1; // Auto-generate ID
+  getAllEmployees(): void {
+    this.employeeService.getEmployees().subscribe(data => {
+      this.employees = data;
+      this.filteredEmployees = data; // Initialize filtered list
     });
   }
 
-  addEmployee(): void {
-    if (this.newEmployee.name && this.newEmployee.organizationId && this.newEmployee.departmentId && this.newEmployee.salary) {
-      this.employeeService.addEmployee(this.newEmployee).subscribe(() => {
-        alert('Employee added successfully!');
-        this.resetForm();
-      });
-    } else {
-      alert('Please fill in all fields before adding an employee.');
-    }
+  filterEmployees(value: string): void {
+    const filterValue = value.toLowerCase();
+    this.filteredEmployees = this.employees.filter(employee =>
+      employee.name.toLowerCase().includes(filterValue)
+    );
   }
 
-  resetForm(): void {
+  addEmployee(): void {
+    const dialogRef = this.dialog.open(ConfirmationDialog, {
+      data: {
+        title: 'Confirm Add Employee',
+        message: 'Are you sure you want to add this employee?'
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.employeeService.addEmployee(this.newEmployee).subscribe(() => {
+          this.dialog.open(MessageDialogComponent, {
+            data: {
+              title: 'Success',
+              message: 'Employee added successfully!'
+            }
+          });
+          this.resetEmployeeForm();
+        });
+      }
+    });
+  }
+
+  addCandidate(): void {
+    // Logic to handle adding a candidate
+    alert('Candidate added successfully!');
+    this.resetCandidateForm();
+  }
+
+  resetEmployeeForm(): void {
     this.newEmployee = { id: 0, name: '', organizationId: 0, departmentId: 0, salary: 0 };
-    this.generateEmployeeId(); // Generate a new ID for the next employee
+  }
+
+  resetCandidateForm(): void {
+    this.newCandidate = { name: '', email: '', phone: '', skills: '' };
   }
 }

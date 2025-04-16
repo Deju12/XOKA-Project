@@ -23,7 +23,7 @@ import { OrganizationComponent } from './components/organization/organization.co
 import { EmployeeComponent } from './components/employee/employee.component';
 import { DepartmentComponent } from './components/department/department.component';
 
-import { HighlightDirective } from './directives/highlight.directive';
+
 // Importing Angular Material modules
 
 import { MatHeaderRowDef, MatRowDef } from '@angular/material/table';
@@ -43,7 +43,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { HomeComponent } from './components/home/home.component';
-import { MatDialogModule, MatFormFieldModule, MatMenuModule, MatSelectModule, MatSortModule } from '@angular/material';
+import { MatAutocompleteModule, MatDialogModule, MatFormFieldModule, MatMenuModule, MatSelectModule, MatSortModule, MatTabsModule } from '@angular/material';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { AddEmployeeComponent } from './components/employee/add-employee/add-employee.component';
 
@@ -53,6 +53,7 @@ import { OrganizationService } from './services/organization/organization.servic
 import { DepartmentService } from './services/department/department.service';
 import {ConfirmationDialog } from './shared/confirmation-dialog/confirmation-dialog.component';
 import { MessageDialogComponent } from './shared/message-dialog/message-dialog.component';
+import { HighlightSalaryDirective } from './shared/highlight-salary.directive';
 
 
 
@@ -64,7 +65,6 @@ import { MessageDialogComponent } from './shared/message-dialog/message-dialog.c
     EmployeeComponent,
     DepartmentComponent,
 
-    HighlightDirective,
     SidebarComponent,
     HomeComponent,
     AddEmployeeComponent,
@@ -73,7 +73,7 @@ import { MessageDialogComponent } from './shared/message-dialog/message-dialog.c
     EmployeeListComponent,
     ConfirmationDialog,
     MessageDialogComponent,
-   
+    HighlightSalaryDirective
   ],
   imports: [
     FormsModule,
@@ -95,7 +95,9 @@ import { MessageDialogComponent } from './shared/message-dialog/message-dialog.c
     MatFormFieldModule,
     MatSelectModule,
     MatMenuModule,
-    MatDialogModule
+    MatDialogModule,
+    MatTabsModule,
+    MatAutocompleteModule,
 
 
   ],

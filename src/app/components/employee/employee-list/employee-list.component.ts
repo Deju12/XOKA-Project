@@ -11,7 +11,7 @@ import { EmployeeService } from '../../../services/employee/employee.service';
   styleUrls: ['./employee-list.component.scss']
 })
 export class EmployeeListComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'name', 'organizationId', 'departmentId', 'salary'];
+  displayedColumns: string[] = ['id', 'name', 'organizationId', 'departmentId', 'salary','candidates'];
   dataSource = new MatTableDataSource<Employee>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -51,5 +51,9 @@ export class EmployeeListComponent implements OnInit {
   onRowClick(employee: Employee): void {
     this.router.navigate(['/employee/update'], { queryParams: { id: employee.id } });
   }
-  
+
+  applyFilter(event: Event): void {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
 }
