@@ -98,7 +98,7 @@ import { HighlightSalaryDirective } from './shared/highlight-salary.directive';
     MatDialogModule,
     MatTabsModule,
     MatAutocompleteModule,
-
+    
 
   ],
   entryComponents: [ConfirmationDialog,MessageDialogComponent],

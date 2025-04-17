@@ -53,8 +53,8 @@ export class EmployeeService {
   getSalaries() {
     return this.http.get<any[]>('/api/salaries');
   }
-  getCandidatesByEmployeeId(employeeId: number): Observable<Candidate[]> {
-    return this.http.get<Candidate[]>(`${this.candidateUrl}?employeeId=${employeeId}`);
+  getCandidates(): Observable<Candidate[]> {
+    return this.http.get<Candidate[]>(this.candidateUrl);
   }
   
 }

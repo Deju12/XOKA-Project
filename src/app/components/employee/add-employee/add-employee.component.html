@@ -50,18 +50,19 @@
       <mat-form-field appearance="outline" class="form-field">
         <mat-label>Employee Name</mat-label>
         <input
-    matInput
-    [(ngModel)]="newCandidate.name"
-    [matAutocomplete]="auto"
-    (input)="filterEmployees($event.target.value)"
-    placeholder="Enter Employee Name"
-  />
-  <mat-autocomplete #auto="matAutocomplete">
-    <mat-option *ngFor="let employee of filteredEmployees" [value]="employee.name">
-      {{ employee.name }}
-    </mat-option>
-  </mat-autocomplete> 
-</mat-form-field>
+          matInput
+          [(ngModel)]="newCandidate.name"
+          [matAutocomplete]="auto"
+          (input)="filterEmployees($event.target.value)"
+          placeholder="Enter Employee Name"
+        />
+        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onEmployeeSelected($event.option.value)">
+          <mat-option *ngFor="let employee of filteredEmployees" [value]="employee">
+            {{ employee.name }}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+      
 
       <!-- Candidate Email Field -->
       <mat-form-field appearance="outline" class="form-field">

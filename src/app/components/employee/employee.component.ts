@@ -11,7 +11,7 @@ import { EmployeeService } from '../../services/employee/employee.service';
 export class EmployeeComponent implements OnInit {
   displayedColumns: string[] = ['id', 'name', 'organizationId', 'departmentId', 'salary', 'actions'];
   dataSource = new MatTableDataSource<Employee>();
-  newEmployee: Employee = { id: 0, name: '', organizationId: 0, departmentId: 0, salary: 0 };
+  newEmployee: Employee = { id: 0, name: '', organizationId: 0, departmentId: 0, salary: 0, candidateId: 0 };
   selectedEmployee: Employee | null = null; // For editing or viewing details
   currentView: 'list' | 'add' | 'edit' | 'details' = 'list'; // Tracks the current view
 

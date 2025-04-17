@@ -9,6 +9,7 @@ import { OrganizationService } from 'src/app/services/organization/organization.
 import { ConfirmationDialog } from 'src/app/shared/confirmation-dialog/confirmation-dialog.component';
 import { MessageDialogComponent } from 'src/app/shared/message-dialog/message-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
+import { CandidateService } from 'src/app/services/candidate/candidate.service';
 
 @Component({
   selector: 'app-add-employee',
@@ -16,8 +17,8 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./add-employee.component.scss']
 })
 export class AddEmployeeComponent implements OnInit {
-  newEmployee = { id: 0, name: '', organizationId: 0, departmentId: 0, salary: 0 };
-  newCandidate = { name: '', email: '', phone: '', skills: '' };
+  newEmployee = {  name: '', organizationId: 0, departmentId: 0, salary:'' };
+  newCandidate = { id: 0, name: '', email: '', phone: '', skills: '' };
   organizations: Organization[] = []; // List of organizations
   departments: Department[] = []; // List of departments
   employees: Employee[] = []; // List of all employees
@@ -28,13 +29,18 @@ export class AddEmployeeComponent implements OnInit {
     private organizationService: OrganizationService,
     private router: Router,
     private dialog: MatDialog,
-    private departmentService: DepartmentService
+    private departmentService: DepartmentService,
+    private candidateService: CandidateService // Inject the CandidateService
   ) {}
 
   ngOnInit(): void {
     this.getOrganizations();
     this.getDepartments();
-    this.getAllEmployees(); // Fetch all employees
+   
+    this.employeeService.getEmployees().subscribe(data => {
+      this.employees = data;
+      this.filteredEmployees = data; // Initialize filtered list
+    }); // Fetch all employees
   }
 
   getOrganizations(): void {
@@ -45,7 +51,6 @@ export class AddEmployeeComponent implements OnInit {
 
   getDepartments(): void {
     this.departmentService.getDepartment().subscribe(data => {
-      console.log('Departments fetched:', data);
       this.departments = data; // Populate the organizations array
     });
   }
@@ -87,17 +92,40 @@ export class AddEmployeeComponent implements OnInit {
     });
   }
 
-  addCandidate(): void {
-    // Logic to handle adding a candidate
-    alert('Candidate added successfully!');
-    this.resetCandidateForm();
+    addCandidate(): void {
+     
+    const dialogRef = this.dialog.open(ConfirmationDialog, {
+      data: {
+        title: 'Confirm Add Candidate',
+        message: 'Are you sure you want to add this candidate?'
+      }
+    });
+  
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.candidateService.addCandidate(this.newCandidate).subscribe(() => {
+          this.dialog.open(MessageDialogComponent, {
+            data: {
+              title: 'Success',
+              message: 'Candidate added successfully!'
+            }
+          });
+          console.log('Candidate added:', this.newCandidate);
+          console.log('Employee added:', this.newEmployee);
+          this.resetCandidateForm();
+        });
+      }
+    });
   }
-
+  onEmployeeSelected(selectedEmployee: Employee): void {
+    this.newCandidate.id = selectedEmployee.id; // Set candidate ID to the selected employee's ID
+    this.newCandidate.name = selectedEmployee.name; // Update the candidate name
+  }
   resetEmployeeForm(): void {
     this.newEmployee = { id: 0, name: '', organizationId: 0, departmentId: 0, salary: 0 };
   }
 
   resetCandidateForm(): void {
-    this.newCandidate = { name: '', email: '', phone: '', skills: '' };
+    this.newCandidate = { id: 0, name: '', email: '', phone: '', skills: '' };
   }
 }

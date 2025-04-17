@@ -39,6 +39,24 @@
     <input matInput type="number" [(ngModel)]="employee.salary" placeholder="Enter Salary">
   </mat-form-field>
 
+  <!-- Candidate Email Field -->
+  <mat-form-field appearance="outline" class="form-field">
+    <mat-label>Candidate Email</mat-label>
+    <input matInput [(ngModel)]="candidate.email" placeholder="Enter Candidate Email">
+  </mat-form-field>
+
+  <!-- Candidate Phone Field -->
+  <mat-form-field appearance="outline" class="form-field">
+    <mat-label>Candidate Phone</mat-label>
+    <input matInput [(ngModel)]="candidate.phone" placeholder="Enter Candidate Phone">
+  </mat-form-field>
+
+  <!-- Candidate Skills Field -->
+  <mat-form-field appearance="outline" class="form-field">
+    <mat-label>Candidate Skills</mat-label>
+    <input matInput [(ngModel)]="candidate.skills" placeholder="Enter Candidate Skills">
+  </mat-form-field>
+
   <!-- Buttons -->
   <div class="form-buttons">
     <button mat-raised-button color="primary" (click)="updateEmployee()">Update</button>
