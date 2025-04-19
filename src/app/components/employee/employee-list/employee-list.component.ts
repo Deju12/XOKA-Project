@@ -16,7 +16,7 @@ export class EmployeeListComponent implements OnInit {
   displayedColumns: string[] = ['id', 'name', 'organizationId', 'departmentId','salary','phone','email','skills'];
   dataSource = new MatTableDataSource<any>();
   
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
+   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
 
 ngAfterViewInit(): void {
   this.dataSource.paginator = this.paginator; // Link the paginator to the dataSource
