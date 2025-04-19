@@ -17,8 +17,8 @@ import { CandidateService } from 'src/app/services/candidate/candidate.service';
   styleUrls: ['./add-employee.component.scss']
 })
 export class AddEmployeeComponent implements OnInit {
-  newEmployee = {  name: '', organizationId: 0, departmentId: 0, salary:'' };
-  newCandidate = { id: 0, name: '', email: '', phone: '', skills: '' };
+  newEmployee = {id:null, name: '', organizationId: 0, departmentId: 0, salary:null,candidateId:0 };
+  newCandidate = { id: 0, name: '', email: '', phone: '', skills:[] };
   organizations: Organization[] = []; // List of organizations
   departments: Department[] = []; // List of departments
   employees: Employee[] = []; // List of all employees
@@ -122,10 +122,10 @@ export class AddEmployeeComponent implements OnInit {
     this.newCandidate.name = selectedEmployee.name; // Update the candidate name
   }
   resetEmployeeForm(): void {
-    this.newEmployee = { id: 0, name: '', organizationId: 0, departmentId: 0, salary: 0 };
+    this.newEmployee = { id:null, name: '', organizationId: 0, departmentId: 0, salary: null ,candidateId:0 };
   }
 
   resetCandidateForm(): void {
-    this.newCandidate = { id: 0, name: '', email: '', phone: '', skills: '' };
+    this.newCandidate = {id:null, name: '', email: '', phone: '', skills: [] };
   }
 }

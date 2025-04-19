@@ -18,6 +18,9 @@ export class EmployeeListComponent implements OnInit {
   
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
+ngAfterViewInit(): void {
+  this.dataSource.paginator = this.paginator; // Link the paginator to the dataSource
+}
   organizations: any[] = [];
   departments: any[] = [];
   candidates: any[] = [];
