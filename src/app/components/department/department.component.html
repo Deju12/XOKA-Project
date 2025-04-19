@@ -1,1 +1,105 @@
-<p>department works!</p>
+<h3>Department</h3>
+
+<mat-tab-group>
+  <!-- Employee Form Tab -->
+  <mat-tab label="Add Department">
+    <h3>Add Department</h3>
+    <div class="form-container">
+      <!-- Name Field -->
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Name</mat-label>
+        <input matInput [(ngModel)]="newDepartment.name" placeholder="Enter name">
+      </mat-form-field>
+
+      <!-- Salary Field -->
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Description</mat-label>
+        <input matInput type="text-field" [(ngModel)]="newDepartment.description" placeholder="Enter Description">
+      </mat-form-field>
+
+      <!-- Add Employee Button -->
+      <div class="form-buttons">
+        <button mat-raised-button color="primary" (click)="addDepartment()">Add Department</button>
+      </div>
+    </div>
+  </mat-tab>
+
+
+   <!-- Department Lists -->
+   <mat-tab label="list of Departments">
+    <div class="search-container">
+      <h3 class="table-title">Department List</h3>
+      
+      <mat-form-field appearance="outline" class="search-field">
+        <mat-label>Search</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Search by Name">
+      </mat-form-field>
+    </div>
+    
+    <div class="table-container">
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    
+        <!-- ID Column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> ID </th>
+          <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+    
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+
+    
+        <!-- Candidates Email Column -->
+        <ng-container matColumnDef="description">
+          <th mat-header-cell *matHeaderCellDef> Description </th>
+          <td mat-cell *matCellDef="let element"> 
+             {{element.description}}
+          </td>
+        </ng-container>
+    
+        <!-- Table Rows -->
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onRowClick(row)"></tr>
+      </table>
+    
+      <!-- Paginator -->
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+    
+  </mat-tab>
+
+  <mat-tab label="Update or Delete Department">
+     <!-- Update Department -->
+   <h3 class="form-title">Update or Delete Employee</h3>
+
+   <div class="form-container">
+     <!-- Employee ID Field -->
+     <mat-form-field appearance="outline" class="form-field">
+       <mat-label>Department ID</mat-label>
+       <input matInput [(ngModel)]="department.id" placeholder="Enter Department ID">
+     </mat-form-field>
+   
+     <!-- Name Field -->
+     <mat-form-field appearance="outline" class="form-field">
+       <mat-label>Name</mat-label>
+       <input matInput [(ngModel)]="department.name" placeholder="Enter Department Name">
+     </mat-form-field>
+   
+     <!-- Department Description Field -->
+     <mat-form-field appearance="outline" class="form-field">
+       <mat-label>Description</mat-label>
+       <input matInput [(ngModel)]="department.description">
+     </mat-form-field>
+   
+     <!-- Buttons -->
+     <div class="form-buttons">
+       <button mat-raised-button color="primary" (click)="updateDepartment()">Update</button>
+       <button mat-raised-button color="warn" (click)="deleteDepartment()">Delete</button>
+     </div>
+   </div>
+  </mat-tab>
+
+</mat-tab-group>

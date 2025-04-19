@@ -22,10 +22,10 @@ export class HrDataService implements InMemoryDbService {
     ];
     
     const departments = [
-      { id: 1, name: 'IT' },
-      { id: 2, name: 'HR' },
-      { id: 3, name: 'Finance' },
-      { id: 4, name: 'Marketing' }
+      { id: 1, name: 'IT',description: 'Information Technology' },
+      { id: 2, name: 'HR',description: 'Human Resources' },
+      { id: 3, name: 'Finance' ,description: 'Financial Services' },
+      { id: 4, name: 'Marketing' ,description: 'Marketing and Sales' }
     ];
     
     const salaries = [

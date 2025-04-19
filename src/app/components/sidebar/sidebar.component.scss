@@ -29,7 +29,11 @@ mat-toolbar {
     font-weight: 600;
     margin: 0;
   }
-
+ .avatar{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+ }
   .icon-button {
     color: white;
     background: transparent;
