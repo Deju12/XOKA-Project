@@ -36,7 +36,7 @@ export class AddEmployeeComponent implements OnInit {
   ngOnInit(): void {
     this.getOrganizations();
     this.getDepartments();
-    this.employeeService.getEmployees();
+    
     this.employeeService.getEmployees().subscribe(data => {
       this.employees = data;
       this.filteredEmployees = data; // Initialize filtered list
@@ -87,6 +87,7 @@ export class AddEmployeeComponent implements OnInit {
             }
           });
           this.resetEmployeeForm();
+          this.getAllEmployees(); // Refresh the employee list
         });
       }
     });
