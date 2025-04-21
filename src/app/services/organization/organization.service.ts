@@ -14,4 +14,13 @@ export class OrganizationService {
   getOrganizations(): Observable<Organization[]> {
     return this.http.get<Organization[]>(this.apiUrl);
   }
+  addOrganization(organization: Organization): Observable<Organization> {
+    return this.http.post<Organization>(this.apiUrl, organization);
+  }
+  updateOrganization(organization: Organization): Observable<Organization> {
+    return this.http.put<Organization>(`${this.apiUrl}/${organization.id}`, organization);
+  }
+  deleteOrganization(id: number): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/${id}`);
+  }
 }

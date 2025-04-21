@@ -1,0 +1,181 @@
+.form-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #3f51b5; /* Primary color */
+  }
+  input{
+      margin: 0;
+  }
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px; /* Space between fields */
+    max-width: 400px;
+    margin: 0 auto; /* Center the form */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: none;
+  }
+  
+  .form-field {
+    width: 100%;
+    margin: 0;
+    padding: 0; /* Make fields take full width */
+  }
+  
+  .form-buttons {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+
+
+
+
+//list
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+    overflow: hidden;
+    padding: 10px;
+  
+    th, td {
+      padding: 12px 16px;
+      text-align: left;
+    }
+    div{
+        box-shadow: none;
+    }
+    
+  
+    th {
+      background-color: #f5f5f5;
+      font-weight: 600;
+      color: #444;
+      font-size: 15px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+  
+    td {
+      font-size: 14px;
+      color: #333;
+    }
+  
+    tr:nth-child(even) td {
+      background-color: #fafafa;
+    }
+  
+    tr:hover td {
+      background-color: #f1f1f1;
+    }
+}
+
+
+th.mat-header-cell {
+  background-color: #3f51b5; /* Primary color */
+  color: white;
+  font-weight: bold;
+  text-align: left;
+  padding: 10px;
+}
+
+td.mat-cell {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+tr.mat-row:hover {
+  background-color: #f1f1f1; /* Highlight row on hover */
+}
+
+/* Remove box shadows */
+.mat-elevation-z8 {
+  box-shadow: none;
+}
+
+/* Style the paginator */
+::ng-deep .mat-paginator {
+    margin-top: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.mat-paginator-range-label {
+  font-size: 14px;
+}
+
+.mat-paginator-icon {
+  color: #3f51b5; /* Primary color */
+}
+.search-container {
+    display: flex;
+    justify-content: space-between; /* Align to the right */
+    margin-bottom: 16px;
+  }
+  
+  .search-field {
+    width: 350px;
+    display: inline;
+     /* Set a fixed width for the search input */
+  }
+  .search-input{
+    display: inline;
+  }
+  h3{
+    display: inline-flex;
+    color: #000;
+    font-size: 24px;
+
+}
+
+
+
+//update 
+
+
+.form-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #3f51b5; /* Primary color */
+  }
+  
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px; /* Space between fields */
+    max-width: 400px;
+    margin: 0 auto; /* Center the form */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  .form-field {
+    width: 100%;
+  }
+  
+  .form-update-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+  }
+  
+  button {
+    width: 48%;
+  }

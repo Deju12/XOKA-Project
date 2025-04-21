@@ -89,10 +89,6 @@ export class UpdateEmployeeComponent implements OnInit {
             console.log('Employee updated successfully!');
           });
 
-          // Update candidate
-          this.candidateService.updateCandidate(this.candidate).subscribe(() => {
-            console.log('Candidate updated successfully!');
-          });
 
           this.dialog.open(MessageDialogComponent, {
             data: {

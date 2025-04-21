@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog, MatPaginator, MatTabGroup, MatTableDataSource } from '@angular/material';
 import { Router } from '@angular/router';
 import { Department } from 'src/app/models/department.model';
@@ -29,7 +29,7 @@ export class DepartmentComponent implements OnInit {
     private departmentService: DepartmentService,
     private router: Router,
     private dialog: MatDialog,
-    private hrDataService: HrDataService,
+    private cdr: ChangeDetectorRef
   ) { }
 
   ngOnInit(): void {
@@ -62,6 +62,7 @@ export class DepartmentComponent implements OnInit {
               }
             });
             this.resetDepartmentForm();
+            this.getDepartment(); // Refresh the Department list
              // Refresh the Department list
           });
         }
@@ -71,7 +72,7 @@ export class DepartmentComponent implements OnInit {
       const dialogRef = this.dialog.open(ConfirmationDialog, {
         data: {
           title: 'Confirm Update',
-          message: 'Are you sure you want to update this employee and their candidate?'
+          message: 'Are you sure you want to update this Department?'
         }
       });
   
@@ -80,22 +81,24 @@ export class DepartmentComponent implements OnInit {
           if (this.department.id) {
             // Update employee
             this.departmentService.updateDepartment(this.department).subscribe(() => {
-              console.log('Employee updated successfully!');
+              console.log('Department updated successfully!');
             });
   
   
             this.dialog.open(MessageDialogComponent, {
               data: {
                 title: 'Success',
-                message: 'Employee and candidate updated successfully!'
+                message: 'Department updated successfully!'
               }
             });
-            this.router.navigate(['/department']);
+            this.resetDepartmentForm();
+            this.getDepartment();
+            this.router.navigate([this.tabGroup.selectedIndex= 1]);
           } else {
             this.dialog.open(MessageDialogComponent, {
               data: {
                 title: 'Error',
-                message: 'Please select an employee to update.'
+                message: 'Please select an Department to update.'
               }
             });
           }
@@ -106,7 +109,7 @@ export class DepartmentComponent implements OnInit {
       const dialogRef = this.dialog.open(ConfirmationDialog, {
         data: {
           title: 'Confirm Delete',
-          message: 'Are you sure you want to delete this employee and their associated candidate? This action cannot be undone.'
+          message: 'Are you sure you want to delete this Department.'
         }
       });
   
@@ -115,22 +118,24 @@ export class DepartmentComponent implements OnInit {
           if (this.department.id) {
             // Delete Department
             this.departmentService.deleteDepartment(this.department.id).subscribe(() => {
-              console.log('Employee deleted successfully!');
+              console.log('Department deleted successfully!');
             });
 
   
             this.dialog.open(MessageDialogComponent, {
               data: {
                 title: 'Success',
-                message: 'Employee and candidate deleted successfully!'
+                message: 'Department deleted successfully!'
               }
             });
-            this.router.navigate(['/employee/list']);
+            this.resetDepartmentForm();
+            this.getDepartment();
+            this.router.navigate([this.tabGroup.selectedIndex= 1]);
           } else {
             this.dialog.open(MessageDialogComponent, {
               data: {
                 title: 'Error',
-                message: 'Please select an employee to delete.'
+                message: 'Please select an Department to delete.'
               }
             });
           }
@@ -139,6 +144,12 @@ export class DepartmentComponent implements OnInit {
     }
     resetDepartmentForm(): void {
       this.newDepartment = { id:null, name: '', description: '' };
+    }
+
+    resetUpdateForm(): void {
+      console.log('Resetting update form...');
+      this.department = { id: null, name: '', description: '' };
+      this.cdr.detectChanges(); // Trigger change detection to update the view
     }
 
     onRowClick(department: Department): void {
